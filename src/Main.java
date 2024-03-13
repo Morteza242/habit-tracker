@@ -30,7 +30,7 @@ public class Main {
         char answer = scan.next().charAt(0);
         if (answer == 'y'){
             System.out.println("Creating task...");
-            Task task1 = user.createTask();
+            Task task1 = user.createTask(scan.next());
             task1.setStart_time(18.00);
             task1.setFinish_time(19.30);
             DecimalFormat df = new DecimalFormat("##.00");

@@ -1,6 +1,7 @@
 package UserPackage;
 
 import TaskPackage.Task;
+import UtilityPackage.Utils;
 
 public class User {
     private String username;
@@ -11,8 +12,23 @@ public class User {
     public String email;
     public int streak;
 
-    public Task createTask () {
-        return new Task(getFullName()) ;
+    private static int index = 0 ;
+
+    String[] TaskNames = new String[100];
+
+    public boolean isTaskRepetitive (String TaskName) {
+        for (int i=0 ; i<=index ; i++) {
+            if (TaskNames[i].equals(TaskName)) return false ;
+        }
+        return true ;
+    }
+
+    public Task createTask (String TaskName) {
+        if (!isTaskRepetitive(TaskName))
+            System.out.println("That task Name is Repetitive.");
+        TaskNames[index] = TaskName;
+        index ++ ;
+        return new Task (TaskName) ;
     }
 
     public void setUsername(String username) {
@@ -20,7 +36,9 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (Utils.isPasswordValid(password))
+            this.password = password;
+        else System.out.println("invalid password!!");
     }
 
     public String getUsername() {
