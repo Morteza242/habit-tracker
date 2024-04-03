@@ -3,34 +3,28 @@ package TaskPackage;
 import UserPackage.User;
 
 public class Task {
-    final String color ;
-    public String name;
+    private final String color ;
+    private String name;
     private double start_time;
     private double finish_time;
-
     User user ;
-
     public void setStart_time(double start_time) {
 
         if (start_time < 0) start_time *= -1;
 
         this.start_time = start_time;
     }
-
     public double getStart_time() {
         return start_time;
     }
-
     public void setFinish_time(double finish_time) {
         if ( finish_time < 0 ) finish_time *= -1;
 
         this.finish_time = finish_time;
     }
-
     public double getFinish_time() {
         return finish_time;
     }
-
     public Task (String name) {
         color = null;
         this.name = name;
@@ -45,7 +39,6 @@ public class Task {
         this.user = user;
         this.color = color;
     }
-
     public boolean isColorValid (String Color) {
         int i ;
         for ( i=0 ; i<Color.length() ; i++) {
@@ -53,7 +46,17 @@ public class Task {
         }
         return i >= Color.length();
     }
+    public void setName (String name) {
+        if (name.length()<=10) this.name = name ;
+        else System.out.println("this name is valid!");
+    }
     public double getDuration () {
         return finish_time - start_time ;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getColor() {
+        return color;
     }
 }

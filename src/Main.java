@@ -34,7 +34,7 @@ public class Main {
             task1.setStart_time(18.00);
             task1.setFinish_time(19.30);
             DecimalFormat df = new DecimalFormat("##.00");
-            System.out.println(task1.name + " duration: " + df.format(task1.getDuration()));
+            System.out.println(task1.getName() + " duration: " + df.format(task1.getDuration()));
         }
 
         // Changing username and password with setter methods
